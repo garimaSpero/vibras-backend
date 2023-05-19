@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
     origin: 'https://vibras-cf75e.web.app',
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
 };
 
 app.use((req, res, next) => {
