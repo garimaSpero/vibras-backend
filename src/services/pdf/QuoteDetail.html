@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 400;
+        }
+        header {
+            width: 100%;
+            padding: 0px;
+            text-align: center;
+            margin-right: 10px;
+            background-color: rgb(100, 12, 12);
+            height: 100px;
+        }
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .desc-sec tbody tr:nth-child(even) {
+            background: #eaedf2;
+        }
+
+        .desc-sec tbody tr:nth-child(odd) {
+            background: #fff;
+        }
+
+        b {
+            font-weight: 600;
+        }
+        
+    </style>
+</head>
+
+<body>
+    {{#if pageBreak}}
+    <header style="page-break-before: always;">
+    {{else}}
+    <header>
+    {{/if}}
+    </header>
+
+    <div  class="container">
+        {{#each pageData }}
+        <table style=" border-collapse: collapse;background: rgb(204 204 204 / 25%);width: 100%;">
+            <tbody>
+                <tr>
+                    <td class="quote-sec" style="padding: 0 40px;">
+                        <table style="width: 100%;">
+                            <tbody style="vertical-align: top;">
+                                <tr>
+                                    <td style="width: 50%;">
+                                        <div class="paint-txt">
+                                            <h3 style="font-size: 33px;margin-bottom: 10px;margin-top: 20px;">{{
+                                                this.dataValues.pageTitle }}</h3>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {{#each this.dataValues.ProposalQuoteDetailSection }}
+                <tr>
+                    <td class="desc-sec" style="padding: 0 40px 40px;">
+                        <table style="width: 100%;border-spacing: 0;">
+                            <tbody style="vertical-align: top;">
+                                <tr style="background: #eaedf2;">
+                                    <td style="padding: 5px 10px;color: #000;"><b>Description</b></td>
+                                    {{#if ../settings.showQuantity}}
+                                    <td colspan="2">Qty</td>
+                                    {{/if}}
+                                    {{#if ../settings.showUnitPrice}}
+                                    <td colspan="2">Unit Price</td>
+                                    {{/if}}
+                                    {{#if ../settings.showLineTotal}}
+                                    <td colspan="2">Line Total</td>
+                                    {{/if}}
+                                </tr>
+                                <tr style="background: #fff;">
+                                    <td style="padding: 5px 10px;color: #000;"><b>{{ this.dataValues.sectionTitle }}</b>
+                                    </td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                {{#each this.dataValues.QuoteDetailItems }}
+                                {{#if this.dataValues.isOptional}}
+                                <tr style="background: #eaedf2;">
+                                    <td style="padding: 5px 10px;color: #000;"><b>Optional Items </b></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                {{/if}}
+                                <tr style="background: #fff;">
+                                    <td style="padding: 5px 10px;color: #000;">
+                                    <b>{{ this.dataValues.OrganisationProduct.dataValues.name }}</b>
+                                    <p style="font-size: 12px;">{{this.dataValues.OrganisationProduct.dataValues.description}}</p>
+                                    </td>
+                                    {{#if ../../settings.showQuantity}}
+                                    <td colspan="2">{{ this.dataValues.quantity }}</td>
+                                    {{/if}}
+                                    {{#if ../../settings.showUnitPrice}}
+                                    <td colspan="2">{{ this.dataValues.price }}</td>
+                                    {{/if}}
+                                    {{#if ../../settings.showLineTotal}}
+                                    <td colspan="2">{{ this.dataValues.lineTotal }}</td>
+                                    {{/if}}
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td class="desc-sec" style="padding: 0 40px 40px;">
+                        <table style="width: 100%;border-spacing: 0;">
+                            <tbody style="vertical-align: top;">
+                                <tr style="background: #fff;">
+                                    <td style="padding: 10px 10px;"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"
+                                        style="padding: 10px 10px 0px;color: #000;text-align: right; font-weight:600;">
+                                        Quote subtotal</td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="padding: 10px 10px 0px;color: #000;text-align: right;">
+                                        {{ this.dataValues.quoteSubtotal }}</td>
+                                </tr>
+
+                                <tr style="background: #fff;">
+                                    <td style="padding: 10px 10px;"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"
+                                        style="padding: 10px 10px ;color: #000;text-align: right; font-weight:600;">
+                                        Total</td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="padding: 10px 10px;color: #000;text-align: right;">
+                                        {{ this.dataValues.total }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {{#if this.dataValues.note }}
+                <tr>
+                    <td class="block-sec">
+                        <table>
+                            <tbody style="vertical-align: top;display: table;padding: 0 40px 50px;">
+                                <tr>
+                                    <td style="width: 50%;padding-right: 10px;">
+                                        Notes: {{ this.dataValues.note }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+        {{/each}}
+    </div>
+</body>
+
+</html>

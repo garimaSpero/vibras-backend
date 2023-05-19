@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: auto;
+            margin: 0mm;
+        }
+        header {
+            width: 100%;
+            padding: 0px;
+            text-align: center;
+            margin-right: 10px;
+            background-color: rgb(100, 12, 12);
+            height: 100px;
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 400;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin-right:10px !important;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        td.block-sec img {
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .w-txt img {
+            width: 220px;
+            margin: -50px 0 auto;
+        }
+
+        .w-txt {
+            text-align: right;
+        }
+        
+    </style>
+</head>
+
+<body>
+    {{#if pageBreak}}
+    <header style="page-break-before: always;">
+    {{else}}
+    <header >
+    {{/if}}
+    
+    </header>
+
+    <div class="container" >
+        <table class="intro" style=" border-collapse: collapse;background: rgb(204 204 204 / 25%);">
+            <tbody>
+                <tr>
+                    <td class="warranty-sec" style="padding: 50px 40px 20px;">
+                        <table style="width: 100%;">
+                            <tbody style="vertical-align: middle;">
+                                <tr>
+                                    <td style="width: 100%;">
+                                        <div class="ww-txt">
+                                            <h3 style="font-size: 33px;margin-bottom: 10px;margin-top: 20px;">
+                                                {{ pageData.pageTitle }}</h3>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 500; line-height: 1.5;">
+                        <table>
+                            <tbody style="vertical-align: top;display: table;padding: 0 40px 50px;">
+                                <tr>
+                                    <td>
+                                        {{{ pageData.pageText }}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: auto;
+            margin: 0mm;
+        } 
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 400;
+        }
+
+        img {
+            max-width: 100%;
+        }
+        td.below-bnr-sec table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        td.below-bnr-sec table td {
+            width: 50%;
+            padding-left: 40px;
+        } 
+
+        td.below-bnr-sec table td:last-child {
+            border-left: 3px solid #dbdbdbed;
+            margin-top: 20px !important;
+             /* display: block;  */
+        }
+        .logo-img {
+            text-align: right;
+        }
+        img.l-img {
+            width: auto;
+            height: 100px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="width: 100%;padding: 0;max-width: 850px;">
+            {{#if pageData.logo}}
+            <div class="logo-img">
+                <img style="width:100px;height: 100px;object-fit: contain;" class="l-img" src={{ pageData.logo }} alt="bnrimage">
+            </div>
+            {{else}}
+            <div class="logo-img">
+                <img class="l-img" src={{ pageData.Organisation.dataValues.logo }} alt="bnrimage">
+            </div>
+            {{/if}}
+        <table class="title" style="width: 100%; padding: 0;margin: 0;border-collapse: collapse;background-color: rgb(100, 12, 12);table-layout: fixed;">
+            <tbody style="width: 100%;padding: 0;margin: 0;">
+                <tr style="padding: 0;margin: 0;">
+                    <td style="padding: 0;margin: 0;">
+                        <table style="padding: 0;margin: 0;width: 100%;table-layout: fixed;">
+                            <tbody style="padding: 0;margin: 0;">
+                        <div style="padding: 0;margin: 0;" class="banner-img"> <img class="title-image" style="padding: 0;margin: 0;width:100%;height:auto;" src={{ pageData.image }} alt="bnrimage"> </div>
+                    </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <tr style="padding: 0;margin: 0;background-color: rgb(100, 12, 12);">
+                    <td style="padding: 0;margin: 0;" class="below-bnr-sec">
+                        <table style="background-color: rgb(100, 12, 12);color:white;padding: 0;margin: 0;table-layout: fixed;">
+                            <tbody style="vertical-align: top;">
+                                <tr>
+                                <td style="width:50%;">
+                                        <table>
+                                            <tbody style="vertical-align: middle;">
+                                        <h2 style="margin-top: 2px;font-size: 21.3333px;font-family: sans-serif;margin-bottom: 10px;">
+                                        {{ pageData.pageTitle }}</h2>
+                                        <p style="font-size: 16px;margin: 0 0 5px;">{{ pageData.proposalDate }}</p>
+                                        <div class="seprator"></div>
+                                        <p><a style="text-decoration: none;font-weight: 700;color:white;" href="mailto:" {{ pageData.User.dataValues.email }}>
+                                            {{ pageData.User.dataValues.email }}</a></p>
+                                        <p> {{ pageData.User.dataValues.phone }} </p>
+                                      </tbody></table>
+                                    </td>
+                                    <td style="width:50%;">
+                                        <table>
+                                            <tbody style="vertical-align: middle;">
+                                        <h2 style="padding-left:30px;padding-right:0px;margin-right: 0; font-weight: 400; font-size: 20px;border-left: 2px solid white;">
+                                            {{ pageData.firstName }} {{ pageData.lastName }} </h2>
+                                        <p style="padding-left:30px;font-size: 14px;">{{ pageData.address }}
+                                            <br>{{ pageData.city }}
+                                            <br>{{ pageData.state }}
+                                            <br>{{ pageData.zipCode }}
+                                        </p>
+                                        </tbody></table>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

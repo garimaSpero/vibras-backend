@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "root",
+        "password": null,
+        "database": "vibras",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "vibras",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "admin",
+        "password": "%date%11%",
+        "database": "vibras",
+        "host": "webs-db.cn8tzbjhzw7t.us-east-1.rds.amazonaws.com",
+        "dialect": "mysql"
+    }
+}
