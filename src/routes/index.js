@@ -21,7 +21,9 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 const adminCorsOptions = {
-    origin: 'https://vibras-cf75e.web.app',
+    origin: "*",
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
 };
 
 module.exports = (app) => {
