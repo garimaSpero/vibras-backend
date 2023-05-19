@@ -90,7 +90,7 @@ function sendProposalEmail(data) {
         const receiverName = data?.dataValues?.ContactProposal?.dataValues?.Contact?.dataValues?.firstName + ' ' + data?.dataValues?.ContactProposal?.dataValues?.Contact?.dataValues?.lastName;
         const senderName = data?.dataValues?.User?.dataValues?.firstName + ' ' + data?.dataValues?.User?.dataValues?.lastName;
         const companyName = data?.dataValues?.Organisation?.dataValues?.businessName;
-        const url = 'http://192.168.2.43:3000/customerportal/proposals/proposal/' + data.dataValues.id
+        const url = 'https://vibras-cf75e.web.app/accept-proposal/' + data.dataValues.id
 
         sendEmail({
             subject: "Proposal",
