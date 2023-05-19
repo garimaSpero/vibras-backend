@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
-    origin: 'https://vibras-cf75e.web.app/',
+    origin: 'https://vibras-cf75e.web.app',
 };
 
 app.use(cors(corsOptions));
