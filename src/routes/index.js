@@ -16,11 +16,20 @@ const customerProposal = require("./Customer/proposalRouter");
 const express = require("express");
 const { sendErrorResponse } = require("../utils/sendResponse");
 
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+const adminCorsOptions = {
+    origin: 'https://vibras-cf75e.web.app/',
+};
+
 module.exports = (app) => {
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.get(`/api`, (req, res) => res.send("Api Running"));
-    app.use('/api/admin', adminRouter);
+    
+    app.use('/api/admin', cors(adminCorsOptions), adminRouter);
     app.use('/api/organisation', organisationRouter);
     app.use('/api/organisation/company-settings', companySettingsRouter);
     app.use('/api/organisation/user', userRouter);
